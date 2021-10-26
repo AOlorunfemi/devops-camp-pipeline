@@ -6,7 +6,7 @@ stages {
 stage('Application repository') {
 steps {
 echo "Cloning application repository"
-sh 'git clone https://github.com/AOlorunfemi/afs-labs-student'
+sh 'git clone https://github.com/AOlorunfemi/afs-labs-student.git'
 }
 }
 stage('Application docker build') {
