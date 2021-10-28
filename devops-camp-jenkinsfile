@@ -7,7 +7,7 @@ pipeline {
     	HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
     	HARBOR_PROJECT = 'aolorunfemi-devsecops'   
     	APP_IMAGE_NAME = 'app'
-	#time
+	
     }
     stages {
         stage('Application repository') {
