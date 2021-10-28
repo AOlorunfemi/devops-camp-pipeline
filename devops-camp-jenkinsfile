@@ -77,16 +77,17 @@ pipeline {
             }
 	}
         stage('Test'){
-            steps {
+	steps {
                 echo "Testing stage"
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deployment stage"
+		sh 'kubectl -n aolorunfemi set image deployment/app-deployment app-deployment=$HARBOR_REGISTRY/$HARBOR_PROJECT/$APP_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
+                sh 'kubectl -n aolorunfemi set image deployment/db-deployment db-deployment=$HARBOR_REGISTRY/$HARBOR_PROJECT/$DB_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
             }
         }
-    }
     post {
         cleanup {
             echo "Clean workspace"
